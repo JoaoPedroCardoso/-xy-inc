@@ -9,4 +9,7 @@ public class TestZupApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TestZupApplication.class, args);
 	}
+	
+	public void run(String... arg0) throws Exception {
+	}
 }
