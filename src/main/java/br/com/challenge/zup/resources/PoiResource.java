@@ -1,6 +1,7 @@
 package br.com.challenge.zup.resources;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,16 @@ public class PoiResource {
 			@RequestParam(value = "x", defaultValue = "1") Integer x,
 			@RequestParam(value = "y", defaultValue = "1") Integer y,
 			@RequestParam(value = "distance", defaultValue = "1") Integer distance) {
-		//TODO implements here
-		return null;
+		List<POI> listAll = service.findAll();
+		List<POI> listReturn = new ArrayList<POI>();
+		
+		for(POI obj : listAll) {
+			double euclidiana = Math.sqrt(Math.pow((obj.getX() - x),2) + Math.pow((obj.getY() - y),2));
+			if(euclidiana <= distance) {
+				listReturn.add(obj);
+			}
+		}
+		return ResponseEntity.ok().body(listReturn);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

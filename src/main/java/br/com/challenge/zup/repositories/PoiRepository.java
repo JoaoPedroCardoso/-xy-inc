@@ -6,5 +6,5 @@ import br.com.challenge.zup.model.POI;
 
 public interface PoiRepository extends JpaRepository<POI, Integer>{ 
 
-
+	
 }
