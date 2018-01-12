@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class POI implements Serializable{
+public class Poi implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 
@@ -16,15 +19,18 @@ public class POI implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Integer id;
 	
+	@NotEmpty(message="Preenchimento Obrigatorio")
 	String name;
+	@NotNull(message="Valor Obrigatorio")
 	Integer x;
+	@NotNull(message="Valor Obrigatorio")
 	Integer y;
 	
-	public POI() {
+	public Poi() {
 		
 	}
 	
-	public POI(Integer id, String name, Integer x, Integer y) {
+	public Poi(Integer id, String name, Integer x, Integer y) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -49,7 +55,7 @@ public class POI implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		POI other = (POI) obj;
+		Poi other = (Poi) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
