@@ -1,14 +1,17 @@
 # Instruções
 
 Chamada dos serviços via heroku:
+
 Para chamada dos serviços sem necessidade de realizar import do projeto, realizar as requisições via client:
 
 Operação listar todos: https://app-xy-inc.herokuapp.com/poi
+
 Operação cadastras pontos de interesse: https://app-xy-inc.herokuapp.com/poi 
 Ex json: 
  "name": "NewPoi",
  "x": 30,
  "y": 30
+
 Operação listar POIs por proximidade: https://app-xy-inc.herokuapp.com/poi/findByProximity?x=VALOR&y=VALOR&distance=VALOR
 Ex: https://app-xy-inc.herokuapp.com/poi/findByProximity?x=20&y=10&distance=10
 
